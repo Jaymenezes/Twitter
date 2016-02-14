@@ -7,32 +7,70 @@
 //
 
 import UIKit
+import AFNetworking
 
-class TweetsViewController: UIViewController {
+
+class TweetsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
     
     var tweets: [Tweet]?
     
+    @IBOutlet weak var tableView: UITableView!
 
-    @IBAction func onLogout(sender: AnyObject) {
-        User.currentUser?.logout()
-    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableView.dataSource = self
+        tableView.delegate = self
+        
 
-        
-        
-        
         // Do any additional setup after loading the view.
         
         TwitterClient.sharedInstance.homeTImelineWithParams(nil) { (tweets, error) -> () in
             self.tweets = tweets
+            self.tableView.reloadData()
         }
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @IBAction func onLogout(sender: AnyObject) {
+        User.currentUser?.logout()
+    }
+    
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if let tweets = self.tweets {
+            return tweets.count;
+        }
+        return 0;
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier("tableViewCell", forIndexPath: indexPath) as! TweetsTableViewCell
+        
+//        cell.profileImageView.setImageWithURL(NSURL(string: tweets![indexPath.row].user!.profileImageUrl!)!);
+
+        
+        let imageUrl = tweets![indexPath.row].user?.profileImageUrl!
+
+        cell.profileImageView.setImageWithURL(NSURL(string: imageUrl!)!)
+        
+        cell.tweetContent.text = tweets![indexPath.row].text!
+        cell.userNameLabel.text = tweets![indexPath.row].user?.name!
+        cell.timeCreatedLabel.text = tweets![indexPath.row].createdAtString!
+        cell.authorLabel.text = "@" + tweets![indexPath.row].user!.screenname!
+        
+//        cell.userHandle.text = tweets![indexPath.row].user!.screenname!;
+
+
+//
+//
+        
+        return cell;
     }
     
 

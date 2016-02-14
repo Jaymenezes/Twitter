@@ -59,7 +59,7 @@ class TwitterClient: BDBOAuth1SessionManager {
         
         GET("1.1/statuses/home_timeline.json", parameters: params, success: { (operation: NSURLSessionDataTask!, response: AnyObject?) -> Void in
             // print("home_timeline: \(response!)")
-            var tweets = Tweet.tweetWithArray(response as! [NSDictionary])
+            let tweets = Tweet.tweetWithArray(response as! [NSDictionary])
             
             completion(tweets: tweets, error: nil)
             }, failure: { (operation: NSURLSessionDataTask?, error: NSError!) -> Void in
@@ -69,7 +69,9 @@ class TwitterClient: BDBOAuth1SessionManager {
         })
     }
     
-        func openURL(url: NSURL) {
+    
+    
+    func openURL(url: NSURL) {
         
         
             fetchAccessTokenWithPath("oauth/access_token", method: "POST", requestToken: BDBOAuth1Credential(queryString: url.query), success: { (accessToken: BDBOAuth1Credential!) -> Void in
