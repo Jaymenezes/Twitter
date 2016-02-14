@@ -27,6 +27,13 @@ class TweetsTableViewCell: UITableViewCell {
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var tweetContent: UILabel!
     @IBOutlet weak var authorLabel: UILabel!
+    @IBOutlet weak var favButton: UIButton!
+    @IBOutlet weak var retweetButton: UIButton!
+    
+    
+        
+
+    
     
     
     override func setSelected(selected: Bool, animated: Bool) {

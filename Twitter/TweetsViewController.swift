@@ -14,12 +14,19 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     
     var tweets: [Tweet]?
     var refreshControl: UIRefreshControl!
+    var favButton: UIButton!
+    var toggleFav = 2
     
     
     @IBOutlet weak var tableView: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        
+        
+        
         
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 120
@@ -36,9 +43,13 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         // Do any additional setup after loading the view.
         
         TwitterClient.sharedInstance.homeTImelineWithParams(nil) { (tweets, error) -> () in
-            self.tweets = tweets
-            self.tableView.reloadData()
-            self.refreshControl.endRefreshing()
+            if (tweets != nil) {
+                self.tweets = tweets
+                self.tableView.reloadData()
+                self.refreshControl.endRefreshing()
+            }
+            
+           
         }
     }
 
@@ -51,8 +62,36 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         User.currentUser?.logout()
     }
     
+    @IBAction func onTapFav(sender: UIButton) {
+        if toggleFav == 1 {
+            print("test on")
+            toggleFav = 2
+        sender.setImage(UIImage(named: "like-action-off"), forState: UIControlState.Normal)
+        }else{
+            toggleFav = 1
+            sender.setImage(UIImage(named: "like-action-on-red"), forState: UIControlState.Normal)
+            print("else works?")
+            
+        }
+        
+        
+        
+//        
+//        sender.setImage(UIImage(named: "like-action-off"), forState: UIControlState.Normal)
+//        sender.setImage(UIImage(named: "like-action-on-red"), forState: UIControlState.Selected)
+//        sender.setImage(UIImage(named: "like-action-on-pressed-red"), forState: UIControlState.Highlighted)
+//        
+        print("change state of button")
+
+    }
+    
+  
+
+    
     func onRefresh() {
-            self.refreshControl.endRefreshing()
+        
+                    self.tableView.reloadData()
+                    self.refreshControl.endRefreshing()
     }
     
     
@@ -81,6 +120,20 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         cell.timeCreatedLabel.text = tweets![indexPath.row].createdAtString!
         cell.authorLabel.text = "@" + tweets![indexPath.row].user!.screenname!
         
+//        trying to implement button animation
+   
+        
+        
+        
+//
+//        // for normal state
+//        favButton.setImage(UIImage(named: "xxx.png"), forState: UIControlState.Normal)
+//        // for Highlighted state
+//        btn_refresh.setImage(UIImage(named: "yyy.png"), forState: UIControlState.Highlighted)
+//        
+//        // for Selected state
+//        btn_refresh.setImage(UIImage(named: "zzzz.png"), forState: UIControlState.Selected)
+        
 //        cell.userHandle.text = tweets![indexPath.row].user!.screenname!;
 
 
@@ -89,6 +142,8 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         
         return cell;
     }
+    
+    
     
 
     /*

@@ -15,6 +15,9 @@ class Tweet: NSObject {
     var text: String?
     var createdAtString: String?
     var createdAt: NSDate?
+    var id: NSNumber?
+    var favTotal: NSNumber?
+    var retweetTotal: NSNumber?
     
     init(dictionary: NSDictionary) {
         
@@ -27,6 +30,9 @@ class Tweet: NSObject {
 
         user = User(dictionary: dictionary["user"] as! NSDictionary )
         author = dictionary["author"] as? String
+        
+        favTotal = dictionary["favorite_Count"] as? Int
+        retweetTotal = dictionary ["retweet_count"] as? Int
         
         
 
@@ -43,6 +49,17 @@ class Tweet: NSObject {
         }
         return tweets
     }
+    
+    class func tweetAsDictionary(dict: NSDictionary) -> Tweet {
+        
+        // print(dict)
+        
+        let tweet = Tweet(dictionary: dict)
+        
+        return tweet
+    }
+    
+    
 
     
 }
