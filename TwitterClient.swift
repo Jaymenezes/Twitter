@@ -51,10 +51,24 @@ class TwitterClient: BDBOAuth1SessionManager {
                 (error: NSError!) -> Void in
                 self.loginCompletion?(user: nil, error:error)
         }
+    }
+    
+    
+    
+    func homeTImelineWithParams(params: NSDictionary?, completion: (tweets: [Tweet]?, error: NSError?) -> ()) {
         
-
-      
-        
+        GET("1.1/statuses/home_timeline.json", parameters: params, success: { (operation: NSURLSessionDataTask!, response: AnyObject?) -> Void in
+            // print("home_timeline: \(response!)")
+            var tweets = Tweet.tweetWithArray(response as! [NSDictionary])
+            
+            completion(tweets: tweets, error: nil)
+            }, failure: { (operation: NSURLSessionDataTask?, error: NSError!) -> Void in
+                print("error getting home timeline")
+                completion(tweets: nil, error: error)
+                
+        })
+    }
+    
         func openURL(url: NSURL) {
         
         
@@ -72,21 +86,6 @@ class TwitterClient: BDBOAuth1SessionManager {
                         print("error getting current user")
                         self.loginCompletion!(user: nil, error: error)
                 })
-                
-                
-            TwitterClient.sharedInstance.GET("1.1/statuses/home_timeline.json", parameters: nil, success: { (operation: NSURLSessionDataTask?, response: AnyObject?) -> Void in
-                //                print("home timeline: \(response)")
-                var tweets = Tweet.tweetWithArray(response as! [NSDictionary])
-                
-                
-                for tweet in tweets {
-                    print("text: \(tweet.text), created: \(tweet.createdAt)")
-                }
-                
-                }, failure: { (operation: NSURLSessionDataTask?, error: NSError!) -> Void in
-                    print("error getting tweets")
-            })
-            
             }) { (error: NSError!) -> Void in
                 print("Failed to receive access token")
                 self.loginCompletion?(user: nil, error:error)
@@ -104,5 +103,3 @@ class TwitterClient: BDBOAuth1SessionManager {
     
     
     
-
-}
