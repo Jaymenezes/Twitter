@@ -13,6 +13,8 @@ import AFNetworking
 class TweetsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
     
     var tweets: [Tweet]?
+    var refreshControl: UIRefreshControl!
+    
     
     @IBOutlet weak var tableView: UITableView!
 
@@ -25,12 +27,18 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         tableView.dataSource = self
         tableView.delegate = self
         
+        refreshControl = UIRefreshControl()
+        tableView.addSubview(refreshControl)
+        
+        refreshControl.addTarget(self, action: "onRefresh", forControlEvents: UIControlEvents.ValueChanged)
+        
 
         // Do any additional setup after loading the view.
         
         TwitterClient.sharedInstance.homeTImelineWithParams(nil) { (tweets, error) -> () in
             self.tweets = tweets
             self.tableView.reloadData()
+            self.refreshControl.endRefreshing()
         }
     }
 
@@ -42,6 +50,11 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     @IBAction func onLogout(sender: AnyObject) {
         User.currentUser?.logout()
     }
+    
+    func onRefresh() {
+            self.refreshControl.endRefreshing()
+    }
+    
     
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

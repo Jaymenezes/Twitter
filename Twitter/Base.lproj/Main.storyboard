@@ -126,10 +126,18 @@
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Twitter_logo_blue_32.png" translatesAutoresizingMaskIntoConstraints="NO" id="cAF-xv-nfg">
+                                                    <rect key="frame" x="279" y="17" width="23" height="23"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="23" id="elP-DC-KoM"/>
+                                                        <constraint firstAttribute="width" constant="23" id="p8J-DJ-Z4o"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="wk4-wl-o0I" firstAttribute="top" secondItem="VcL-sM-kDL" secondAttribute="top" constant="24" id="2Oj-WG-dL6"/>
                                                 <constraint firstItem="pa8-6d-hiS" firstAttribute="leading" secondItem="5Je-BT-j0A" secondAttribute="trailing" constant="8" id="4tl-96-qZM"/>
+                                                <constraint firstAttribute="trailing" secondItem="cAF-xv-nfg" secondAttribute="trailing" constant="18" id="6Qk-Ij-fNY"/>
                                                 <constraint firstAttribute="trailing" secondItem="q4S-UK-YeT" secondAttribute="trailing" constant="18" id="6wj-dA-VE8"/>
                                                 <constraint firstAttribute="bottom" secondItem="o5B-Bd-8Te" secondAttribute="bottom" constant="20.5" id="8Ob-S3-nGt"/>
                                                 <constraint firstItem="314-f9-DdX" firstAttribute="leading" secondItem="rqm-dH-Goi" secondAttribute="trailing" constant="8" id="BSH-0z-GuB"/>
@@ -144,6 +152,7 @@
                                                 <constraint firstItem="pa8-6d-hiS" firstAttribute="top" secondItem="VcL-sM-kDL" secondAttribute="top" constant="38" id="cGK-mN-022"/>
                                                 <constraint firstItem="rqm-dH-Goi" firstAttribute="top" secondItem="q4S-UK-YeT" secondAttribute="bottom" constant="8.5" id="d14-vc-NbI"/>
                                                 <constraint firstItem="LKF-uL-DG3" firstAttribute="leading" secondItem="VcL-sM-kDL" secondAttribute="leading" constant="20" id="d8y-VO-mzb"/>
+                                                <constraint firstItem="cAF-xv-nfg" firstAttribute="top" secondItem="VcL-sM-kDL" secondAttribute="top" constant="17" id="dRg-TU-eWA"/>
                                                 <constraint firstItem="Vvb-rF-qqc" firstAttribute="leading" secondItem="WP1-23-xA2" secondAttribute="trailing" constant="8" id="erp-X9-0GY"/>
                                                 <constraint firstItem="rqm-dH-Goi" firstAttribute="centerY" secondItem="o5B-Bd-8Te" secondAttribute="centerY" id="fFg-QJ-BdD"/>
                                                 <constraint firstItem="WP1-23-xA2" firstAttribute="centerY" secondItem="o5B-Bd-8Te" secondAttribute="centerY" id="hRx-Vg-ZLR"/>
@@ -224,6 +233,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Twitter_logo_blue_32.png" width="32" height="32"/>
         <image name="like-action-off.png" width="54" height="72"/>
         <image name="reply-action_0.png" width="65" height="72"/>
         <image name="retweet-action_default.png" width="75" height="72"/>
