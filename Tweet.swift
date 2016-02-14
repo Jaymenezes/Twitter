@@ -27,6 +27,8 @@ class Tweet: NSObject {
 
         user = User(dictionary: dictionary["user"] as! NSDictionary )
         author = dictionary["author"] as? String
+        
+        
 
         
     }

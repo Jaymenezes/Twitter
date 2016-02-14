@@ -13,6 +13,12 @@ class TweetsTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        profileImageView.layer.cornerRadius = 5
+        profileImageView.clipsToBounds = true
+        userNameLabel.preferredMaxLayoutWidth = userNameLabel.frame.size.width
+        
+        
         // Initialization code
     }
 

@@ -48,42 +48,42 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="140" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nUA-Xb-ALF">
-                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="160" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nUA-Xb-ALF">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="tableViewCell" rowHeight="140" id="iuQ-7a-Rzg" customClass="TweetsTableViewCell" customModule="Twitter" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="92" width="320" height="140"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="tableViewCell" rowHeight="160" id="iuQ-7a-Rzg" customClass="TweetsTableViewCell" customModule="Twitter" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="92" width="320" height="160"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iuQ-7a-Rzg" id="VcL-sM-kDL">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="139.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="159.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Je-BT-j0A">
-                                                    <rect key="frame" x="8" y="8" width="65" height="65"/>
+                                                    <rect key="frame" x="20" y="17" width="45" height="45"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Jean Menezes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wk4-wl-o0I">
-                                                    <rect key="frame" x="81" y="8" width="99" height="17"/>
+                                                    <rect key="frame" x="73" y="24" width="99" height="17"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="@jay.menezes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pa8-6d-hiS">
-                                                    <rect key="frame" x="182" y="8" width="92" height="17"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <rect key="frame" x="73" y="38" width="92" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="tweetContent" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="none" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LKF-uL-DG3">
+                                                    <rect key="frame" x="20" y="63" width="278" height="58"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="12h" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q4S-UK-YeT">
-                                                    <rect key="frame" x="292" y="9" width="20" height="15"/>
+                                                    <rect key="frame" x="20" y="129" width="282" height="15"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="tweet text" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LKF-uL-DG3">
-                                                    <rect key="frame" x="81" y="27" width="224" height="89"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -101,10 +101,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="nUA-Xb-ALF" secondAttribute="trailing" id="13L-gh-uwN"/>
-                            <constraint firstItem="nUA-Xb-ALF" firstAttribute="top" secondItem="Y15-1G-pGh" secondAttribute="bottom" id="5bT-lK-spy"/>
-                            <constraint firstItem="xiM-H3-wE2" firstAttribute="top" secondItem="nUA-Xb-ALF" secondAttribute="bottom" id="YIh-c8-85l"/>
-                            <constraint firstItem="nUA-Xb-ALF" firstAttribute="leading" secondItem="Ap0-nV-fhe" secondAttribute="leading" id="neR-5p-YQG"/>
+                            <constraint firstItem="nUA-Xb-ALF" firstAttribute="leading" secondItem="Ap0-nV-fhe" secondAttribute="leading" id="3qI-nI-bEt"/>
+                            <constraint firstItem="nUA-Xb-ALF" firstAttribute="top" secondItem="Ap0-nV-fhe" secondAttribute="top" id="hCN-HE-vrJ"/>
+                            <constraint firstItem="xiM-H3-wE2" firstAttribute="top" secondItem="nUA-Xb-ALF" secondAttribute="bottom" id="hP9-9x-C4m"/>
+                            <constraint firstAttribute="trailing" secondItem="nUA-Xb-ALF" secondAttribute="trailing" id="quj-GS-vDd"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Home" id="lU2-0F-w7w">
@@ -127,14 +127,20 @@
             </objects>
             <point key="canvasLocation" x="1112" y="345"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Home Navigation Controller-->
         <scene sceneID="B9x-Rn-7FQ">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="W0W-TQ-O1a" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="HomeNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="W0W-TQ-O1a" customClass="HomeNavigationController" customModule="Twitter" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="4bw-Op-0fm">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.33333333333333331" green="0.67450980392156867" blue="0.93333333333333335" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="16"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="textShadowColor" red="0.60750073189999998" green="0.60748255250000005" blue="0.60749280449999998" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
