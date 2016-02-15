@@ -14,20 +14,19 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     
     var tweets: [Tweet]?
     var refreshControl: UIRefreshControl!
+    let delay = 2.0 * Double(NSEC_PER_SEC)
+    
+    
     var favButton: UIButton!
     var toggleFav = 2
-    
+    var toggleRetweet = 2
+ 
     
     @IBOutlet weak var tableView: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        
-        
-        
-        
+   
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 120
         
@@ -62,52 +61,77 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         User.currentUser?.logout()
     }
     
+    //        trying to implement button animation
+
+    @IBAction func onTapRetweet(sender: UIButton) {
+        if toggleRetweet == 1 {
+            print("test on")
+            toggleRetweet = 2
+            sender.setImage(UIImage(named: "retweet-action-inactive"), forState: UIControlState.Normal)
+        }else{
+            toggleRetweet = 1
+            sender.setImage(UIImage(named: "retweet-action-on-green"), forState: UIControlState.Normal)
+            print("else works?")
+        }
+    }
+    
     @IBAction func onTapFav(sender: UIButton) {
         if toggleFav == 1 {
-            print("test on")
+            print("tweet pressed")
             toggleFav = 2
         sender.setImage(UIImage(named: "like-action-off"), forState: UIControlState.Normal)
         }else{
             toggleFav = 1
             sender.setImage(UIImage(named: "like-action-on-red"), forState: UIControlState.Normal)
-            print("else works?")
+            print("twitter not pressed")
             
         }
-        
-        
-        
-//        
+
 //        sender.setImage(UIImage(named: "like-action-off"), forState: UIControlState.Normal)
 //        sender.setImage(UIImage(named: "like-action-on-red"), forState: UIControlState.Selected)
 //        sender.setImage(UIImage(named: "like-action-on-pressed-red"), forState: UIControlState.Highlighted)
 //        
         print("change state of button")
-
     }
+    
+    
     
   
 
     
+    
+    func delay(delay:Double, closure:() -> ()) {
+        dispatch_after(
+            dispatch_time(
+                DISPATCH_TIME_NOW,
+                Int64(delay * Double(NSEC_PER_SEC))
+            ),
+            dispatch_get_main_queue(), closure)
+    }
+    
     func onRefresh() {
-        
-                    self.tableView.reloadData()
-                    self.refreshControl.endRefreshing()
+        delay(1, closure: {
+            self.refreshControl.endRefreshing()
+        })
     }
     
     
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let tweets = self.tweets {
-            return tweets.count;
+        if tweets != nil {
+            print("TWEETS COUNT:::::::::::::::::::::::: \(tweets!.count)")
+            return tweets!.count
+        } else {
+            return 0
         }
-        return 0;
     }
-    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
         let cell = tableView.dequeueReusableCellWithIdentifier("tableViewCell", forIndexPath: indexPath) as! TweetsTableViewCell
         
+        
+        
 
+        
         
         let imageUrl = tweets![indexPath.row].user?.profileImageUrl!
         cell.profileImageView.setImageWithURL(NSURL(string: imageUrl!)!)
@@ -117,27 +141,30 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         
         
         cell.userNameLabel.text = tweets![indexPath.row].user?.name!
+        
+        
         cell.timeCreatedLabel.text = tweets![indexPath.row].createdAtString!
         cell.authorLabel.text = "@" + tweets![indexPath.row].user!.screenname!
-        
-//        trying to implement button animation
-   
-        
-        
-        
 //
-//        // for normal state
-//        favButton.setImage(UIImage(named: "xxx.png"), forState: UIControlState.Normal)
-//        // for Highlighted state
-//        btn_refresh.setImage(UIImage(named: "yyy.png"), forState: UIControlState.Highlighted)
+        cell.favCountLabel.text = String(tweets![indexPath.row].favTotal)
+        cell.retweetCountLabel.text = String(tweets![indexPath.row].retweetTotal)
+        
+        
+        
+
+//        var retweetTotal = tweets![indexPath.row].retweetTotal
+//
+//        tweetID = tweet.id
+//        retweetTotalLabel = String(tweets.retweetCount!)
+//        favCountLabel.text = String(tweet.favCount!)
 //        
-//        // for Selected state
-//        btn_refresh.setImage(UIImage(named: "zzzz.png"), forState: UIControlState.Selected)
-        
-//        cell.userHandle.text = tweets![indexPath.row].user!.screenname!;
+//        
+////        let favTotal = tweets![indexPath.row].favTotal!
+////
+////        
+////        cell.favCountLabel.text = tweets![indexPath.row].favTotal as? String
+//        
 
-
-//
 //
         
         return cell;
@@ -149,7 +176,6 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     /*
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
