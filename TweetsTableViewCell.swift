@@ -7,22 +7,13 @@
 //
 
 import UIKit
+import AFNetworking
+
 
 
 class TweetsTableViewCell: UITableViewCell {
     
   
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
-        profileImageView.layer.cornerRadius = 5
-        profileImageView.clipsToBounds = true
-        userNameLabel.preferredMaxLayoutWidth = userNameLabel.frame.size.width
-        
-        
-        // Initialization code
-    }
 
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var timeCreatedLabel: UILabel!
@@ -36,78 +27,48 @@ class TweetsTableViewCell: UITableViewCell {
     @IBOutlet weak var favCountLabel: UILabel!
     
     
+    var tweetID: String = ""
+
+    var tweet: Tweet! {
+        didSet{
+            
+            
+
+            tweetContent.text = tweet.text
+            authorLabel.text = "@\(tweet.user!.screenname!)"
+
+            userNameLabel.text = tweet.user?.name!
+            timeCreatedLabel.text = tweet.createdAtString!
+            profileImageView.setImageWithURL(NSURL(string: tweet.user!.profileImageUrl!)!)
+            
+            tweetID = tweet.id
+            retweetCountLabel.text = String(tweet.retweetTotal!)
+            favCountLabel.text = String(tweet.favTotal!)
+            
+            
+            
+//            profileImageView.setImageWithURL(tweet.user?.profileImageUrl!)
+            
+//            profileImageView.setImageWithURL(tweet.user!.profileImageUrl!)
+
+            
+//            favCountLabel.text = tweet.favTotal as! Int
+//            retweetCountLabel.text = tweet.retweetTotal as! Int
     
-    class Tweet: NSObject {
-        
-        var user: User?
-        var author: String?
-        var text: String?
-        var createdAtString: String?
-        var createdAt: NSDate?
-        var id: String
-        var favTotal: Int?
-        var retweetTotal: Int?
-        var tweetID: String = ""
-        
-        
-        
-        init(dictionary: NSDictionary) {
-            
-            
-            text = dictionary["text"] as? String
-            createdAtString = dictionary["created_at"] as? String
-            
-            let formatter = NSDateFormatter()
-            formatter.dateFormat = "EEE MMM d HH:mm:ss Z y"
-            createdAt = formatter.dateFromString(createdAtString!)
-            
-            user = User(dictionary: dictionary["user"] as! NSDictionary )
-            author = dictionary["author"] as? String
-            
-            favTotal = dictionary["favorite_count"] as? Int
-            
-            retweetTotal = dictionary ["retweet_count"] as? Int
-            id = String(dictionary["id"]!)
-            
-            
-            
-            
-            
-            
             
             
         }
+    }
+    override func awakeFromNib() {
+        super.awakeFromNib()
         
-        class func tweetWithArray(array: [NSDictionary]) -> [Tweet] {
-            var tweets = [Tweet]()
-            
-            for dictionary in array {
-                print(dictionary)
-                
-                tweets.append(Tweet(dictionary: dictionary))
-                
-            }
-            return tweets
-        }
+        profileImageView.layer.cornerRadius = 5
+        profileImageView.clipsToBounds = true
+        userNameLabel.preferredMaxLayoutWidth = userNameLabel.frame.size.width
+        
+        
+        // Initialization code
     }
     
-    
-
-    
-    
-    
-    
-    
-    
-    
-        
-
-    
-    
-    
-    override func setSelected(selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-    }
 
 }

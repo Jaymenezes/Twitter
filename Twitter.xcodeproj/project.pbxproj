@@ -43,7 +43,7 @@
 		CE1397841C6C5E730001327B /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		CE1397861C6C5E860001327B /* Tweet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
 		CED63C091C6FF581008C7672 /* TweetsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetsViewController.swift; sourceTree = "<group>"; };
-		CED63C0B1C701322008C7672 /* TweetsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetsTableViewCell.swift; sourceTree = "<group>"; };
+		CED63C0B1C701322008C7672 /* TweetsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TweetsTableViewCell.swift; path = ../TweetsTableViewCell.swift; sourceTree = "<group>"; };
 		CED63C0D1C7039C7008C7672 /* HomeNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeNavigationController.swift; sourceTree = "<group>"; };
 		CED63C0F1C705213008C7672 /* like-action-off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "like-action-off.png"; path = "Assets.xcassets/like-action-off.png"; sourceTree = "<group>"; };
 		CED63C101C705213008C7672 /* like-action-on-pressed-red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "like-action-on-pressed-red.png"; path = "Assets.xcassets/like-action-on-pressed-red.png"; sourceTree = "<group>"; };
@@ -110,7 +110,6 @@
 			children = (
 				CE1397841C6C5E730001327B /* User.swift */,
 				CE1397861C6C5E860001327B /* Tweet.swift */,
-				CED63C0B1C701322008C7672 /* TweetsTableViewCell.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -159,6 +158,7 @@
 		CEE8C2571C694698004E1A66 /* Twitter */ = {
 			isa = PBXGroup;
 			children = (
+				CED63C0B1C701322008C7672 /* TweetsTableViewCell.swift */,
 				CED63C2B1C705219008C7672 /* images */,
 				CEE8C2581C694698004E1A66 /* AppDelegate.swift */,
 				CEE8C25A1C694698004E1A66 /* ViewController.swift */,
