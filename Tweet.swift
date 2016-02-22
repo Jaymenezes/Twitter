@@ -18,6 +18,8 @@ class Tweet: NSObject {
     var id: String
     var favTotal: Int?
     var retweetTotal: Int?
+    var beenFav: Bool?
+    var beenRetweeted: Bool?
     
     
 
@@ -38,6 +40,10 @@ class Tweet: NSObject {
         
         retweetTotal = dictionary ["retweet_count"] as? Int
         id = String(dictionary["id"]!)
+        beenFav = dictionary ["favorited"] as? Bool
+        beenRetweeted = dictionary ["retweeted"] as? Bool
+        
+        
         
 
         

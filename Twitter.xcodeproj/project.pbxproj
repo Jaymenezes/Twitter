@@ -127,8 +127,8 @@
 				CED63C161C705213008C7672 /* retweet-action-inactive.png */,
 				CED63C171C705213008C7672 /* retweet-action-on-green.png */,
 				CED63C181C705213008C7672 /* retweet-action-on-pressed_green.png */,
-				CED63C191C705213008C7672 /* retweet-action-pressed.png */,
 				CED63C1A1C705213008C7672 /* Twitter_logo_blue_16.png */,
+				CED63C191C705213008C7672 /* retweet-action-pressed.png */,
 				CED63C1B1C705213008C7672 /* Twitter_logo_blue_32.png */,
 				CED63C1C1C705213008C7672 /* Twitter_logo_blue_48.png */,
 			);

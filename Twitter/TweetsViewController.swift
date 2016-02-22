@@ -20,6 +20,9 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     var favButton: UIButton!
     var toggleFav = 2
     var toggleRetweet = 2
+    
+    
+
  
     
     @IBOutlet weak var tableView: UITableView!
@@ -32,6 +35,7 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         
         tableView.dataSource = self
         tableView.delegate = self
+        
         
         refreshControl = UIRefreshControl()
         tableView.addSubview(refreshControl)
@@ -61,38 +65,40 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         User.currentUser?.logout()
     }
     
+    
+    
     //        trying to implement button animation
 
-    @IBAction func onTapRetweet(sender: UIButton) {
-        if toggleRetweet == 1 {
-            print("test on")
-            toggleRetweet = 2
-            sender.setImage(UIImage(named: "retweet-action-inactive"), forState: UIControlState.Normal)
-        }else{
-            toggleRetweet = 1
-            sender.setImage(UIImage(named: "retweet-action-on-green"), forState: UIControlState.Normal)
-            print("else works?")
-        }
-    }
-    
-    @IBAction func onTapFav(sender: UIButton) {
-        if toggleFav == 1 {
-            print("tweet pressed")
-            toggleFav = 2
-        sender.setImage(UIImage(named: "like-action-off"), forState: UIControlState.Normal)
-        }else{
-            toggleFav = 1
-            sender.setImage(UIImage(named: "like-action-on-red"), forState: UIControlState.Normal)
-            print("twitter not pressed")
-            
-        }
-
+//    @IBAction func onTapRetweet(sender: UIButton) {
+//        if toggleRetweet == 1 {
+//            print("test on")
+//            toggleRetweet = 2
+//            sender.setImage(UIImage(named: "retweet-action-inactive"), forState: UIControlState.Normal)
+//        }else{
+//            toggleRetweet = 1
+//            sender.setImage(UIImage(named: "retweet-action-on-green"), forState: UIControlState.Normal)
+//            print("else works?")
+//        }
+//    }
+//    
+//    @IBAction func onTapFav(sender: UIButton) {
+////        if toggleFav == 1 {
+////            print("tweet pressed")
+////            toggleFav = 2
+////        sender.setImage(UIImage(named: "like-action-off"), forState: UIControlState.Normal)
+////        }else{
+////            toggleFav = 1
+////            sender.setImage(UIImage(named: "like-action-on-red"), forState: UIControlState.Normal)
+////            print("twitter not pressed")
+////            
+////        }
+//
 //        sender.setImage(UIImage(named: "like-action-off"), forState: UIControlState.Normal)
 //        sender.setImage(UIImage(named: "like-action-on-red"), forState: UIControlState.Selected)
 //        sender.setImage(UIImage(named: "like-action-on-pressed-red"), forState: UIControlState.Highlighted)
-//        
-        print("change state of button")
-    }
+////
+//        print("change state of button")
+//    }
     
     
     
@@ -119,12 +125,12 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tweets != nil {
-            print("TWEETS COUNT:::::::::::::::::::::::: \(tweets!.count)")
             return tweets!.count
         } else {
             return 0
         }
     }
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("tableViewCell", forIndexPath: indexPath) as! TweetsTableViewCell
         
@@ -136,44 +142,52 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         
         
 
-        
-//        
-//        let imageUrl = tweets![indexPath.row].user?.profileImageUrl!
-//        cell.profileImageView.setImageWithURL(NSURL(string: imageUrl!)!)
-//        
-//        
-//        cell.tweetContent.text = tweets![indexPath.row].text!
-//        
-//        
-//        cell.userNameLabel.text = tweets![indexPath.row].user?.name!
-//        
-//        
-//        cell.timeCreatedLabel.text = tweets![indexPath.row].createdAtString!
-//        cell.authorLabel.text = "@" + tweets![indexPath.row].user!.screenname!
-////
-//        cell.favCountLabel.text = String(tweets![indexPath.row].favTotal)
-//        cell.retweetCountLabel.text = String(tweets![indexPath.row].retweetTotal)
-        
-        
-        
-
-//        var retweetTotal = tweets![indexPath.row].retweetTotal
-//
-//        tweetID = tweet.id
-//        retweetTotalLabel = String(tweets.retweetCount!)
-//        favCountLabel.text = String(tweet.favCount!)
-//        
-//        
-////        let favTotal = tweets![indexPath.row].favTotal!
-////
-////        
-////        cell.favCountLabel.text = tweets![indexPath.row].favTotal as? String
-//        
-
-//
-        
+               
         return cell;
     }
+    
+    
+//    Wayman's method
+//    func retweetClicked(tweetCell: TweetsTableViewCell) {
+//        
+//        let tweet = tweetCell.tweet! as Tweet
+//        
+//        // Check if tweet has already been retweeted
+//        // By way of cool ternary operator:
+//        tweet.beenRetweeted! ? (
+//            // It's been retweeted already... let's unretweet it:
+//            TwitterClient.sharedInstance.unRetweet(Int(tweetCell.tweetID)!, params: nil, completion: {(error) -> () in
+//                tweetCell.retweetButton.setImage(UIImage(named: "retweet-action.png"), forState: UIControlState.Selected)
+//                
+//                if tweet.retweetTotal! > 1 {
+//                    tweetCell.retweetCountLabel.text = String(tweet.retweetTotal! - 1)
+//                } else {
+//                    tweetCell.retweetCountLabel.hidden = true
+//                    tweetCell.retweetCountLabel.text = String(tweet.retweetTotal! - 1)
+//                }
+//                
+//                // locally update tweet dictionary so we don't need to make network request in order to update that cell
+//                tweet.retweetTotal! -= 1
+//                tweet.beenRetweeted! = false
+//            }) // END CLOSURE
+//            ) : (
+//                // YES! HASN'T BEEN RETWEETED, SO LET'S DO THAT:
+//                TwitterClient.sharedInstance.reTweet(Int(tweetCell.tweetID)!, params: nil, completion: {(error) -> () in
+//                    tweetCell.retweetButton.setImage(UIImage(named: "retweet-action-on-pressed.png"), forState: UIControlState.Selected)
+//                    
+//                    if tweet.retweetTotal! > 0 {
+//                        tweetCell.retweetCountLabel.text = String(tweet.retweetTotal! + 1)
+//                    } else {
+//                        tweetCell.retweetCountLabel.hidden = false
+//                        tweetCell.retweetCountLabel.text = String(tweet.retweetTotal! + 1)
+//                    }
+//                    
+//                    // locally update tweet dictionary so we don't need to make network request in order to update that cell
+//                    tweet.retweetTotal! += 1
+//                    tweet.beenRetweeted! = true
+//                }) // END CLOSURE
+//        ) // END TERNARY OPERATOR
+//    }
     
     
     
