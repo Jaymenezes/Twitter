@@ -145,51 +145,7 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
                
         return cell;
     }
-    
-    
-//    Wayman's method
-//    func retweetClicked(tweetCell: TweetsTableViewCell) {
-//        
-//        let tweet = tweetCell.tweet! as Tweet
-//        
-//        // Check if tweet has already been retweeted
-//        // By way of cool ternary operator:
-//        tweet.beenRetweeted! ? (
-//            // It's been retweeted already... let's unretweet it:
-//            TwitterClient.sharedInstance.unRetweet(Int(tweetCell.tweetID)!, params: nil, completion: {(error) -> () in
-//                tweetCell.retweetButton.setImage(UIImage(named: "retweet-action.png"), forState: UIControlState.Selected)
-//                
-//                if tweet.retweetTotal! > 1 {
-//                    tweetCell.retweetCountLabel.text = String(tweet.retweetTotal! - 1)
-//                } else {
-//                    tweetCell.retweetCountLabel.hidden = true
-//                    tweetCell.retweetCountLabel.text = String(tweet.retweetTotal! - 1)
-//                }
-//                
-//                // locally update tweet dictionary so we don't need to make network request in order to update that cell
-//                tweet.retweetTotal! -= 1
-//                tweet.beenRetweeted! = false
-//            }) // END CLOSURE
-//            ) : (
-//                // YES! HASN'T BEEN RETWEETED, SO LET'S DO THAT:
-//                TwitterClient.sharedInstance.reTweet(Int(tweetCell.tweetID)!, params: nil, completion: {(error) -> () in
-//                    tweetCell.retweetButton.setImage(UIImage(named: "retweet-action-on-pressed.png"), forState: UIControlState.Selected)
-//                    
-//                    if tweet.retweetTotal! > 0 {
-//                        tweetCell.retweetCountLabel.text = String(tweet.retweetTotal! + 1)
-//                    } else {
-//                        tweetCell.retweetCountLabel.hidden = false
-//                        tweetCell.retweetCountLabel.text = String(tweet.retweetTotal! + 1)
-//                    }
-//                    
-//                    // locally update tweet dictionary so we don't need to make network request in order to update that cell
-//                    tweet.retweetTotal! += 1
-//                    tweet.beenRetweeted! = true
-//                }) // END CLOSURE
-//        ) // END TERNARY OPERATOR
-//    }
-    
-    
+        
     
 
     /*
