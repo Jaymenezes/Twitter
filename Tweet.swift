@@ -22,6 +22,7 @@ class Tweet: NSObject {
     var beenRetweeted: Bool?
     
     
+    
 
     
     init(dictionary: NSDictionary) {

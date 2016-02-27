@@ -214,7 +214,12 @@ class TweetsTableViewCell: UITableViewCell {
         
         profileImageView.layer.cornerRadius = 5
         profileImageView.clipsToBounds = true
+        
         userNameLabel.preferredMaxLayoutWidth = userNameLabel.frame.size.width
+        tweetContent.preferredMaxLayoutWidth = tweetContent.frame.size.width
+        userNameLabel.preferredMaxLayoutWidth = userNameLabel.frame.size.width
+        authorLabel.preferredMaxLayoutWidth = authorLabel.frame.size.width
+        timeCreatedLabel.preferredMaxLayoutWidth = timeCreatedLabel.frame.size.width
         
         
         // Initialization code

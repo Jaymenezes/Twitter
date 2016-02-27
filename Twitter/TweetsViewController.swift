@@ -131,6 +131,7 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         }
     }
     
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("tableViewCell", forIndexPath: indexPath) as! TweetsTableViewCell
         
@@ -145,7 +146,30 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
                
         return cell;
     }
+    
+    
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        print("segue identifier:")
+        print(segue.identifier);
         
+        
+        
+        if(segue.identifier == "detailsViewController") {
+            let cell = sender as! UITableViewCell
+            let indexPath = tableView.indexPathForCell(cell)
+            
+            tableView.deselectRowAtIndexPath(indexPath!, animated: true)
+            
+            let detailsViewController = segue.destinationViewController as! DetailsTweetViewController
+            
+
+            
+        }
+    }
+}
+
+
     
 
     /*
@@ -157,4 +181,4 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     }
     */
 
-}
+

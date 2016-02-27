@@ -8,37 +8,109 @@
 
 import UIKit
 
-class ComposeViewController: UIViewController {
+class ComposeViewController: UIViewController, UITextViewDelegate {
+    
+    var user: User?
+    var tweet: Tweet?
+    var author: String?
+    var tweetContent: String = ""
+    var isReply: Bool?
 
     @IBOutlet weak var composeButton: UINavigationItem!
-    @IBOutlet weak var cancelComposeButton: UIBarButtonItem!
     
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var authorLabel: UILabel!
+    @IBOutlet weak var composeNewTweet: UITextView!
+    @IBOutlet weak var characLimit: UILabel!
+    @IBOutlet weak var createTweetButton: UIBarButtonItem!
+    @IBOutlet weak var placeholderLabel: UILabel!
     
-    @IBOutlet weak var composeTweetTextField: UITextField!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        User.currentUser?.profileImageUrl
-        User.currentUser?.name
-        User.currentUser?.screenname
         
-        // Do any additional setup after loading the view.
-    }
-    
-    @IBAction func cancelComposeAction(sender: AnyObject) {
-    dismissViewControllerAnimated(true, completion: nil)
+        composeNewTweet.delegate = self
+        authorLabel.text = "@\(User.currentUser!.screenname!)"
+        userNameLabel.text = User.currentUser!.name!
+        profileImageView.setImageWithURL(NSURL(string: (User.currentUser?.profileImageUrl)!)!)
+        
+        placeholderLabel.text = "What's Happening?"
+        composeNewTweet.addSubview(placeholderLabel)
+        placeholderLabel.hidden = !composeNewTweet.text.isEmpty
+        
+        composeNewTweet.becomeFirstResponder()
 
-    }
+        
+        if (isReply) == true {
+            composeNewTweet.text = "@\((tweet?.user?.screenname)!)"
+            if  0 < (141 - composeNewTweet.text!.characters.count) {
+                createTweetButton.enabled = true
+                characLimit.text = "\(140 - composeNewTweet.text!.characters.count)"
+            }
+            else{
+                createTweetButton.enabled = false
+            }
+            isReply = false
+        }        }
+
+    
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
+
+    
+    
+    @IBAction func onCreateNewTweet(sender: AnyObject) {
+        
+        tweetContent = composeNewTweet.text
+        
+        let escapedTweetMessage = tweetContent.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())
+        
+        
+        if isReply == true {
+            TwitterClient.sharedInstance.reply(escapedTweetMessage!, statusID: Int(tweet!.id)!, params: nil, completion: { (error) -> () in
+                print("replying")
+
+            })
+            
+            isReply = false
+            navigationController?.popToRootViewControllerAnimated(true)
+        } else {
+            TwitterClient.sharedInstance.compose(escapedTweetMessage!, params: nil, completion: { (error) -> () in
+                print("composing")
+            })
+            navigationController?.popToRootViewControllerAnimated(true)
+        }
+
+        
+    }
+    
+        
+        
+    
+    
+
+
+    func textViewDidChange(textView: UITextView) {
+         placeholderLabel.hidden = !composeNewTweet.text.isEmpty
+        if  0 < (141 - composeNewTweet.text!.characters.count) {
+            createTweetButton.enabled = true
+            characLimit.text = "\(140 - composeNewTweet.text!.characters.count)"
+            
+        }
+        else{
+            createTweetButton.enabled = false
+            characLimit.text = "\(140 - composeNewTweet.text!.characters.count)"
+           
+            
+        }
+    }
 
     /*
     // MARK: - Navigation
@@ -49,5 +121,6 @@ class ComposeViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+
 
 }
