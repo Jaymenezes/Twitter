@@ -74,7 +74,12 @@ class ComposeViewController: UIViewController, UITextViewDelegate {
         
         
         if isReply == true {
-            TwitterClient.sharedInstance.reply(escapedTweetMessage!, statusID: Int(tweet!.id)!, params: nil, completion: { (error) -> () in
+            placeholderLabel.hidden = !composeNewTweet.text.isEmpty
+
+            TwitterClient.sharedInstance.reply(escapedTweetMessage!, statusID: Int(tweet!.id)!, params: nil, completion: {
+                
+                
+                (error) -> () in
                 print("replying")
 
             })

@@ -85,18 +85,6 @@ class TweetsTableViewCell: UITableViewCell {
             retweetCountLabel.text! == "0" ? (retweetCountLabel.hidden = true) : (retweetCountLabel.hidden = false)
             favCountLabel.text! == "0" ? (favCountLabel.hidden = true) : (favCountLabel.hidden = false)
             
-            
-            
-//            Wayman's method
-//            retweetCountLabel.text! == "0" ? (retweetCountLabel.hidden = true) : (retweetCountLabel.hidden = false)
-//            tweet.beenRetweeted! ? // Check if tweet has been retweeted, set button image depending on isRetweeted
-//                (self.retweetButton.setImage(UIImage(named: "retweet-action-on-pressed.png"), forState: UIControlState.Selected)) :
-//                (self.retweetButton.setImage(UIImage(named: "retweet-action.png"), forState: UIControlState.Selected))
-            
-            
-            
-            
-
         }
     }
     
@@ -170,40 +158,6 @@ class TweetsTableViewCell: UITableViewCell {
         
     }
     
-    
-    
-    
-//        buttonDelegate?.retweetClicked(self)
-        
-        
-            
-        
-            
-            
-            
-        
-//        print("Retweet button clicked")
-//        
-//        TwitterClient.sharedInstance.retweetWithCompletion(["id": tweetID!]) { (tweet, error) -> () in
-//            
-//            if (tweet != nil) {
-//                
-//                self.retweetButton.setImage(UIImage(named: "retweet-action-on-green.png"), forState: UIControlState.Normal)
-//                
-//                if self.retweetCountLabel.text! > "0" {
-//                    self.retweetCountLabel.text = String(self.tweet!.retweetCount! + 1)
-//                } else {
-//                    self.retweetCountLabel.hidden = false
-//                    self.retweetCountLabel.text =
-//                        String(self.tweet!.retweetCount! + 1)
-//                }
-//                
-//            }
-//            else {
-//                print("ERROR retweeting: \(error)")
-//            }
-//        }
-
     
 }
 
