@@ -25,6 +25,7 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
 
  
     
+    @IBOutlet weak var composeNewTweet: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
 
     override func viewDidLoad() {
@@ -65,40 +66,7 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         User.currentUser?.logout()
     }
     
-    
-    
-    //        trying to implement button animation
 
-//    @IBAction func onTapRetweet(sender: UIButton) {
-//        if toggleRetweet == 1 {
-//            print("test on")
-//            toggleRetweet = 2
-//            sender.setImage(UIImage(named: "retweet-action-inactive"), forState: UIControlState.Normal)
-//        }else{
-//            toggleRetweet = 1
-//            sender.setImage(UIImage(named: "retweet-action-on-green"), forState: UIControlState.Normal)
-//            print("else works?")
-//        }
-//    }
-//    
-//    @IBAction func onTapFav(sender: UIButton) {
-////        if toggleFav == 1 {
-////            print("tweet pressed")
-////            toggleFav = 2
-////        sender.setImage(UIImage(named: "like-action-off"), forState: UIControlState.Normal)
-////        }else{
-////            toggleFav = 1
-////            sender.setImage(UIImage(named: "like-action-on-red"), forState: UIControlState.Normal)
-////            print("twitter not pressed")
-////            
-////        }
-//
-//        sender.setImage(UIImage(named: "like-action-off"), forState: UIControlState.Normal)
-//        sender.setImage(UIImage(named: "like-action-on-red"), forState: UIControlState.Selected)
-//        sender.setImage(UIImage(named: "like-action-on-pressed-red"), forState: UIControlState.Highlighted)
-////
-//        print("change state of button")
-//    }
     
     
     
@@ -148,37 +116,39 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     
-    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        print("segue identifier:")
-        print(segue.identifier);
         
-        
-        
-        if(segue.identifier == "detailsViewController") {
+        if (segue.identifier == "DetailsSegue") {
             let cell = sender as! UITableViewCell
+            
             let indexPath = tableView.indexPathForCell(cell)
+            let tweet = tweets?[indexPath!.row]
             
-            tableView.deselectRowAtIndexPath(indexPath!, animated: true)
+            let tweetDetaislViewController = segue.destinationViewController as! DetailsTweetViewController
+            tweetDetaislViewController.tweet = tweet
+        }
             
-            let detailsViewController = segue.destinationViewController as! DetailsTweetViewController
+        else if (segue.identifier) == "ComposeSegue" {
+        
             
-
+            let user = User.currentUser
+            
+            let composeViewController = segue.destinationViewController as! ComposeViewController
+            composeViewController.user = user
+        
             
         }
     }
+    
+    
+    // MARK: - Navigation
+    
 }
 
 
-    
 
-    /*
-    // MARK: - Navigation
 
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+
+
 
 
