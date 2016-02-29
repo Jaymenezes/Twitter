@@ -17,12 +17,7 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     let delay = 2.0 * Double(NSEC_PER_SEC)
     
     
-    var favButton: UIButton!
-    var toggleFav = 2
-    var toggleRetweet = 2
-    
-    
-
+ 
  
     
     @IBOutlet weak var composeNewTweet: UIBarButtonItem!
@@ -138,6 +133,18 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         
             
         }
+        
+        else if (segue.identifier) == "SegueToProfile" {
+            
+            let tweet = self.tweets
+            let user = User.currentUser
+            
+            let profileViewController = segue.destinationViewController as! ProfileViewController
+            profileViewController.user = user
+            
+            
+        }
+
     }
     
     

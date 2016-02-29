@@ -15,6 +15,8 @@
 		CE1397821C6948A90001327B /* TwitterClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1397811C6948A90001327B /* TwitterClient.swift */; };
 		CE1397851C6C5E730001327B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1397841C6C5E730001327B /* User.swift */; };
 		CE1397871C6C5E860001327B /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1397861C6C5E860001327B /* Tweet.swift */; };
+		CE886C971C835A5E002714F6 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE886C961C835A5D002714F6 /* ProfileViewController.swift */; };
+		CEA8BFBC1C841C28006662E8 /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = CEA8BFBB1C841C28006662E8 /* home.png */; };
 		CED63C0A1C6FF581008C7672 /* TweetsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED63C091C6FF581008C7672 /* TweetsViewController.swift */; };
 		CED63C0C1C701322008C7672 /* TweetsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED63C0B1C701322008C7672 /* TweetsTableViewCell.swift */; };
 		CED63C0E1C7039C7008C7672 /* HomeNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED63C0D1C7039C7008C7672 /* HomeNavigationController.swift */; };
@@ -50,6 +52,8 @@
 		CE1397811C6948A90001327B /* TwitterClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwitterClient.swift; sourceTree = "<group>"; };
 		CE1397841C6C5E730001327B /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		CE1397861C6C5E860001327B /* Tweet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
+		CE886C961C835A5D002714F6 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		CEA8BFBB1C841C28006662E8 /* home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = home.png; path = Assets.xcassets/home.png; sourceTree = "<group>"; };
 		CED63C091C6FF581008C7672 /* TweetsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetsViewController.swift; sourceTree = "<group>"; };
 		CED63C0B1C701322008C7672 /* TweetsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TweetsTableViewCell.swift; path = ../TweetsTableViewCell.swift; sourceTree = "<group>"; };
 		CED63C0D1C7039C7008C7672 /* HomeNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeNavigationController.swift; sourceTree = "<group>"; };
@@ -108,11 +112,12 @@
 		CE01D7371C7D42C100C825E8 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				CEE8C25A1C694698004E1A66 /* ViewController.swift */,
-				CED63C0B1C701322008C7672 /* TweetsTableViewCell.swift */,
-				CED63C091C6FF581008C7672 /* TweetsViewController.swift */,
+				CE886C961C835A5D002714F6 /* ProfileViewController.swift */,
 				CE01D7381C7D431300C825E8 /* ComposeViewController.swift */,
 				CE01D7631C7ED31500C825E8 /* DetailsTweetViewController.swift */,
+				CED63C0B1C701322008C7672 /* TweetsTableViewCell.swift */,
+				CED63C091C6FF581008C7672 /* TweetsViewController.swift */,
+				CEE8C25A1C694698004E1A66 /* ViewController.swift */,
 				CED63C0D1C7039C7008C7672 /* HomeNavigationController.swift */,
 			);
 			name = "View Controllers";
@@ -140,6 +145,7 @@
 			children = (
 				CE01D75F1C7EC55D00C825E8 /* compose_tweet.jpg */,
 				CED63C0F1C705213008C7672 /* like-action-off.png */,
+				CEA8BFBB1C841C28006662E8 /* home.png */,
 				CED63C101C705213008C7672 /* like-action-on-pressed-red.png */,
 				CED63C111C705213008C7672 /* like-action-on-red.png */,
 				CE01D7611C7EC5DA00C825E8 /* compose_tweet_small.png */,
@@ -270,6 +276,7 @@
 				CEE8C25E1C694698004E1A66 /* Main.storyboard in Resources */,
 				CED63C251C705213008C7672 /* retweet-action-on-green.png in Resources */,
 				CED63C281C705213008C7672 /* Twitter_logo_blue_16.png in Resources */,
+				CEA8BFBC1C841C28006662E8 /* home.png in Resources */,
 				CED63C271C705213008C7672 /* retweet-action-pressed.png in Resources */,
 				CED63C201C705213008C7672 /* like-action-pressed-grey.png in Resources */,
 				CED63C1F1C705213008C7672 /* like-action-on-red.png in Resources */,
@@ -337,6 +344,7 @@
 				CE1397871C6C5E860001327B /* Tweet.swift in Sources */,
 				CED63C0A1C6FF581008C7672 /* TweetsViewController.swift in Sources */,
 				CEE8C25B1C694698004E1A66 /* ViewController.swift in Sources */,
+				CE886C971C835A5E002714F6 /* ProfileViewController.swift in Sources */,
 				CE01D7641C7ED31500C825E8 /* DetailsTweetViewController.swift in Sources */,
 				CE1397821C6948A90001327B /* TwitterClient.swift in Sources */,
 				CED63C0E1C7039C7008C7672 /* HomeNavigationController.swift in Sources */,

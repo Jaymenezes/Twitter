@@ -13,11 +13,7 @@ import AFNetworking
 class TweetsTableViewCell: UITableViewCell {
     
     
-//    WAyman's method
-//    protocol TweetCellButtonDelegate: class {
-//        func retweetClicked(tweetCell: TweetsTableViewCell)
-//        func favoriteClicked(tweetCell: TweetsTableViewCell)
-//    }
+
 
   
 

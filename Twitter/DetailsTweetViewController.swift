@@ -19,9 +19,7 @@ class DetailsTweetViewController: UIViewController {
     @IBOutlet weak var tweetContent: UILabel!
     @IBOutlet weak var timeCreatedLabel: UILabel!
     
-    @IBOutlet weak var retweetsLabel: UILabel!
-    @IBOutlet weak var favoritesLabel: UILabel!
-    
+ 
     @IBOutlet weak var replyButton: UIButton!
     @IBOutlet weak var retweetButton: UIButton!
     @IBOutlet weak var favButton: UIButton!
@@ -31,6 +29,16 @@ class DetailsTweetViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        profileImageView.layer.cornerRadius = 5
+        profileImageView.clipsToBounds = true
+        
+        userNameLabel.preferredMaxLayoutWidth = userNameLabel.frame.size.width
+        tweetContent.preferredMaxLayoutWidth = tweetContent.frame.size.width
+        userNameLabel.preferredMaxLayoutWidth = userNameLabel.frame.size.width
+        authorLabel.preferredMaxLayoutWidth = authorLabel.frame.size.width
+        timeCreatedLabel.preferredMaxLayoutWidth = timeCreatedLabel.frame.size.width
+
         
         
         var tweetID: String = ""
