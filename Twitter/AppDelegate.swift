@@ -27,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().tintColor = UIColor.whiteColor()
         
         if User.currentUser != nil {
-            print("Current user detected: \(User.currentUser?.name)")
+//            print("Current user detected: \(User.currentUser?.name)")
             let vc = storyboard.instantiateViewControllerWithIdentifier("HomeNavigationController") as UIViewController
             window?.rootViewController = vc
         }

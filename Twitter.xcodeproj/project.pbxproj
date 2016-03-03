@@ -16,6 +16,7 @@
 		CE1397851C6C5E730001327B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1397841C6C5E730001327B /* User.swift */; };
 		CE1397871C6C5E860001327B /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1397861C6C5E860001327B /* Tweet.swift */; };
 		CE886C971C835A5E002714F6 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE886C961C835A5D002714F6 /* ProfileViewController.swift */; };
+		CE8B6C4D1C87ECFD005E9520 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE8B6C4B1C87ECFD005E9520 /* Main.storyboard */; };
 		CEA8BFBC1C841C28006662E8 /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = CEA8BFBB1C841C28006662E8 /* home.png */; };
 		CED63C0A1C6FF581008C7672 /* TweetsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED63C091C6FF581008C7672 /* TweetsViewController.swift */; };
 		CED63C0C1C701322008C7672 /* TweetsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED63C0B1C701322008C7672 /* TweetsTableViewCell.swift */; };
@@ -36,7 +37,6 @@
 		CED63C2A1C705213008C7672 /* Twitter_logo_blue_48.png in Resources */ = {isa = PBXBuildFile; fileRef = CED63C1C1C705213008C7672 /* Twitter_logo_blue_48.png */; };
 		CEE8C2591C694698004E1A66 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE8C2581C694698004E1A66 /* AppDelegate.swift */; };
 		CEE8C25B1C694698004E1A66 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE8C25A1C694698004E1A66 /* ViewController.swift */; };
-		CEE8C25E1C694698004E1A66 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEE8C25C1C694698004E1A66 /* Main.storyboard */; };
 		CEE8C2601C694698004E1A66 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CEE8C25F1C694698004E1A66 /* Assets.xcassets */; };
 		CEE8C2631C694698004E1A66 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CEE8C2611C694698004E1A66 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -53,6 +53,7 @@
 		CE1397841C6C5E730001327B /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		CE1397861C6C5E860001327B /* Tweet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
 		CE886C961C835A5D002714F6 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		CE8B6C4C1C87ECFD005E9520 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CEA8BFBB1C841C28006662E8 /* home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = home.png; path = Assets.xcassets/home.png; sourceTree = "<group>"; };
 		CED63C091C6FF581008C7672 /* TweetsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetsViewController.swift; sourceTree = "<group>"; };
 		CED63C0B1C701322008C7672 /* TweetsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TweetsTableViewCell.swift; path = ../TweetsTableViewCell.swift; sourceTree = "<group>"; };
@@ -74,7 +75,6 @@
 		CEE8C2551C694698004E1A66 /* Twitter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Twitter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEE8C2581C694698004E1A66 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CEE8C25A1C694698004E1A66 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		CEE8C25D1C694698004E1A66 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CEE8C25F1C694698004E1A66 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CEE8C2621C694698004E1A66 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CEE8C2641C694698004E1A66 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -190,7 +190,7 @@
 				CE01D7371C7D42C100C825E8 /* View Controllers */,
 				CEE8C2581C694698004E1A66 /* AppDelegate.swift */,
 				CEE8C25F1C694698004E1A66 /* Assets.xcassets */,
-				CEE8C25C1C694698004E1A66 /* Main.storyboard */,
+				CE8B6C4B1C87ECFD005E9520 /* Main.storyboard */,
 				CEE8C2611C694698004E1A66 /* LaunchScreen.storyboard */,
 				CED63C2B1C705219008C7672 /* images */,
 				CEE8C2641C694698004E1A66 /* Info.plist */,
@@ -271,9 +271,9 @@
 				CE01D7601C7EC55D00C825E8 /* compose_tweet.jpg in Resources */,
 				CED63C261C705213008C7672 /* retweet-action-on-pressed_green.png in Resources */,
 				CED63C2A1C705213008C7672 /* Twitter_logo_blue_48.png in Resources */,
+				CE8B6C4D1C87ECFD005E9520 /* Main.storyboard in Resources */,
 				CED63C291C705213008C7672 /* Twitter_logo_blue_32.png in Resources */,
 				CE01D7621C7EC5DA00C825E8 /* compose_tweet_small.png in Resources */,
-				CEE8C25E1C694698004E1A66 /* Main.storyboard in Resources */,
 				CED63C251C705213008C7672 /* retweet-action-on-green.png in Resources */,
 				CED63C281C705213008C7672 /* Twitter_logo_blue_16.png in Resources */,
 				CEA8BFBC1C841C28006662E8 /* home.png in Resources */,
@@ -355,10 +355,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		CEE8C25C1C694698004E1A66 /* Main.storyboard */ = {
+		CE8B6C4B1C87ECFD005E9520 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				CEE8C25D1C694698004E1A66 /* Base */,
+				CE8B6C4C1C87ECFD005E9520 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";

@@ -27,6 +27,7 @@ class TweetsTableViewCell: UITableViewCell {
     @IBOutlet weak var retweetButton: UIButton!
     @IBOutlet weak var retweetCountLabel: UILabel!
     @IBOutlet weak var favCountLabel: UILabel!
+    @IBOutlet weak var segueToProfileButton: UIButton!
     
     
 
@@ -38,6 +39,8 @@ class TweetsTableViewCell: UITableViewCell {
 
     var tweet: Tweet! {
         didSet{
+            
+//            segueToProfileButton.hidden = true
             
             
 
@@ -113,6 +116,10 @@ class TweetsTableViewCell: UITableViewCell {
         
         return "\(timeAgo)\(timeChar)"
     }
+    
+    
+    
+    
     
     
     @IBAction func onFavClicked(sender: AnyObject) {

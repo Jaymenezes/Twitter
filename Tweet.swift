@@ -54,7 +54,7 @@ class Tweet: NSObject {
         var tweets = [Tweet]()
         
         for dictionary in array {
-            print(dictionary)
+//            print(dictionary)
             
 
             

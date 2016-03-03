@@ -62,7 +62,12 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
 
+    @IBAction func onCurrentProfileClick(sender: AnyObject) {
+        
+       
     
+    }
+
     
     
   
@@ -133,19 +138,47 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         
             
         }
-        
-        else if (segue.identifier) == "SegueToProfile" {
             
-            let tweet = self.tweets
-            let user = User.currentUser
             
-            let profileViewController = segue.destinationViewController as! ProfileViewController
-            profileViewController.user = user
+        else if (segue.identifier) == "SegueToHome" {
+            
+            
+//            let user = User.currentUser
+//                print(user)
+//            let homeViewController = segue.destinationViewController as! ProfileViewController
+//            homeViewController.user = User.currentUser
+//            
+
+            
+            let tweetsProfileViewController = segue.destinationViewController as! ProfileViewController
+            tweetsProfileViewController.user = User.currentUser
+
             
             
         }
 
+        
+        else if (segue.identifier) == "SegueToProfile" {
+            
+            
+            let button = sender as! UIButton
+            let view = button.superview!
+            let cell = view.superview as! TweetsTableViewCell
+            
+            let indexPath = tableView.indexPathForCell(cell)
+            let tweet = tweets?[indexPath!.row]
+            print("SP:",tweet)
+            let tweetsProfileViewController = segue.destinationViewController as! ProfileViewController
+            tweetsProfileViewController.tweet = tweet
+            
+            
+        }
+        
+        
+        
     }
+    
+        
     
     
     // MARK: - Navigation
