@@ -60,7 +60,7 @@ Describe any challenges encountered while building the app.
     
     # Project 5 - *Twitter week 2*
 
-Time spent: **X** hours spent in total
+Time spent: **20** hours spent in total
 
 ## User Stories
 
@@ -68,9 +68,9 @@ The following **required** functionality is completed:
 
 - [x] Tweet Details Page: User can tap on a tweet to view it, with controls to retweet, favorite, and reply.
 - [x] Profile page:
-   - [ ] Contains the user header view
-   - [ ] Contains a section with the users basic stats: # tweets, # following, # followers
-- [ ] Home Timeline: Tapping on a user image should bring up that user's profile page
+   - [x] Contains the user header view
+   - [x] Contains a section with the users basic stats: # tweets, # following, # followers
+- [x] Home Timeline: Tapping on a user image should bring up that user's profile page
 - [x] Compose Page: User can compose a new tweet by tapping on a compose button.
 
 The following **optional** features are implemented:
@@ -92,6 +92,7 @@ The following **additional** features are implemented:
 - [ ] List anything else that you can get done to improve the app functionality!
 - [x] Enable retweet/favorite feature in cell and in details view
 - [x] Placeholder in textView, hide when editing begins and show when textView is empty
+- [x] Home button for current user profile
 
 
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
@@ -104,6 +105,7 @@ Please list two areas of the assignment you'd like to **discuss further with you
 Here's a walkthrough of implemented user stories:
 
 ![Walkthrough](gif_twitter_3.0.gif)
+![Walkthrough](gif_twitter_4.0.gif)
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
