@@ -53,6 +53,7 @@ class ProfileViewController: UIViewController {
             tweetsCountLabel.text = String(tweet!.user!.followersCount)
             followingCountLabel.text = String(tweet!.user!.followingCount)
             followersCountLabel.text = (String(tweet!.user!.followersCount))
+           
             if (tweet!.user?.profileBanner != nil){
                 let imageUrl = tweet!.user?.profileBanner!
                 userBannerImageView.setImageWithURL(NSURL( string: imageUrl!)!)
@@ -74,6 +75,7 @@ class ProfileViewController: UIViewController {
             tweetsCountLabel.text = String(user!.statusesCount)
             followingCountLabel.text = String(user!.followingCount)
             followersCountLabel.text = String(user!.followersCount)
+            
             if (User.currentUser!.profileBanner != nil){
                 let imageUrl = User.currentUser?.profileBanner!
                 userBannerImageView.setImageWithURL(NSURL( string: imageUrl!)!)
